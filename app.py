@@ -606,6 +606,15 @@ if HAS_STREAMLIT:
     if "last_demo_selection" not in st.session_state:
         st.session_state.last_demo_selection = "Custom Upload"
 
+    def clear_active_image():
+        """Reliably clears active image state, invalidates widget buffers, and resets to clean standby."""
+        st.session_state.active_bytes = None
+        st.session_state.active_filename = None
+        st.session_state.last_file_name = None
+        st.session_state.uploader_key = st.session_state.get("uploader_key", 0) + 1
+        st.session_state.camera_key = st.session_state.get("camera_key", 0) + 1
+        st.session_state.last_demo_selection = "Custom Upload"
+
     # ==============================================================================
     # Input Selection Bar (Compact Tabs: Upload, Camera, Quick Samples)
     # ==============================================================================
@@ -735,13 +744,9 @@ if HAS_STREAMLIT:
             else:
                 st.error(f"Security Ingestion Block: {report.get('error_message', 'Invalid payload')}")
 
-            # Reset Button directly under image
-            if st.button("🔄 Clear / Analyze Another Image", key="btn_clear_image_left", use_container_width=True):
-                st.session_state.active_bytes = None
-                st.session_state.active_filename = None
-                st.session_state.last_file_name = None
-                st.session_state.uploader_key += 1
-                st.session_state.camera_key += 1
+            # Reset Button directly under image (Executes pre-run callback to avoid redundant GPU forward pass)
+            if st.button("🔄 Clear / Analyze Another Image", key="btn_clear_image_left", on_click=clear_active_image, use_container_width=True):
+                clear_active_image()
                 st.rerun()
 
             st.markdown("</div>", unsafe_allow_html=True)
