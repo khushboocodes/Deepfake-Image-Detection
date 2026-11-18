@@ -1,0 +1,16 @@
+{
+  "seed": 42,
+  "batch_size": 64,
+  "num_workers": 0,
+  "stage1_epochs": 3,
+  "stage1_lr": 0.0005,
+  "stage2_epochs": 18,
+  "stage2_backbone_lr": 0.00004,
+  "stage2_head_lr": 0.0003,
+  "pos_weight": 0.95,
+  "optimizer": "adamw",
+  "weight_decay": 0.0001,
+  "label_smoothing": 0.03,
+  "patience": 6,
+  "monitor_metric": "val_macro_f1"
+}

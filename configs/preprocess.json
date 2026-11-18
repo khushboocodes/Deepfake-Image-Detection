@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "model_architecture": "efficientnet_b0",
+  "checkpoint_path": "models/best_model.pth",
+  "input_resolution": [
+    224,
+    224
+  ],
+  "interpolation": "bilinear",
+  "antialias": true,
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "calibration": {
+    "temperature": 0.9041,
+    "method": "platt_scaling_validation"
+  },
+  "decision_thresholds": {
+    "real_upper_bound": 0.35,
+    "fake_lower_bound": 0.65,
+    "direct_threshold": 0.58,
+    "abstention_enabled": true
+  },
+  "class_mapping": {
+    "0": "Real / Authentic Consistent",
+    "1": "AI-Generated / Synthetic"
+  },
+  "security_limits": {
+    "max_file_size_bytes": 15728640,
+    "min_dimension_px": 64,
+    "max_dimension_px": 4096,
+    "max_image_pixels": 16777216,
+    "blur_variance_threshold": 100.0
+  }
+}
