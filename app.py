@@ -74,7 +74,7 @@ if HAS_STREAMLIT:
 
     # Page Configuration
     st.set_page_config(
-        page_title="DeepfakeGuard • Forensic Detection Suite",
+        page_title="DeepfakeGuard • Forensic Suite",
         page_icon="🛡️",
         layout="wide",
         initial_sidebar_state="expanded"
@@ -84,7 +84,7 @@ if HAS_STREAMLIT:
     model, config, device = get_cached_pipeline()
 
     # ==============================================================================
-    # High-Contrast Modern Custom CSS (DeepfakeGuard Theme)
+    # Compact & High-Contrast Custom CSS (Eliminates excessive gaps & scrolling)
     # ==============================================================================
     st.markdown("""
     <style>
@@ -100,18 +100,29 @@ if HAS_STREAMLIT:
     /* Ambient Background Mesh */
     .stApp {
         background: 
-            radial-gradient(1000px 500px at 80% -60px, rgba(99, 102, 241, 0.18), transparent 70%),
-            radial-gradient(800px 400px at 20% 0px, rgba(139, 92, 246, 0.12), transparent 60%),
+            radial-gradient(1200px 450px at 80% -60px, rgba(99, 102, 241, 0.16), transparent 70%),
+            radial-gradient(800px 350px at 20% 0px, rgba(139, 92, 246, 0.10), transparent 60%),
             #0b071e !important;
     }
 
-    /* Main Container Padding - Compact to prevent long scrolling */
+    /* Tightly Controlled Container Padding */
     .main .block-container {
-        padding-top: 1.2rem;
-        padding-bottom: 2rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        max-width: 1400px;
+        padding-top: 0.6rem !important;
+        padding-bottom: 0.8rem !important;
+        padding-left: 1.4rem !important;
+        padding-right: 1.4rem !important;
+        max-width: 1420px;
+    }
+
+    /* Strip Away Streamlit's Default Bloated Gaps */
+    [data-testid="stVerticalBlock"] {
+        gap: 0.40rem !important;
+    }
+    [data-testid="stHorizontalBlock"] {
+        gap: 0.60rem !important;
+    }
+    [data-testid="stElementContainer"] {
+        margin-bottom: 0px !important;
     }
 
     /* Dark Deep Navy Sidebar */
@@ -126,7 +137,10 @@ if HAS_STREAMLIT:
     [data-testid="stSidebar"] .stRadio label {
         color: #cbd5e1 !important;
         font-weight: 600;
-        font-size: 0.88rem;
+        font-size: 0.82rem;
+    }
+    [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+        gap: 0.35rem !important;
     }
 
     /* Sidebar Logo Header */
@@ -134,31 +148,31 @@ if HAS_STREAMLIT:
         display: flex;
         align-items: center;
         gap: 12px;
-        padding: 6px 2px 16px 2px;
+        padding: 4px 2px 12px 2px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        margin-bottom: 16px;
+        margin-bottom: 10px;
     }
     .brand-icon-box {
-        width: 42px;
-        height: 42px;
-        border-radius: 12px;
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
         background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.35rem;
-        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        font-size: 1.25rem;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
     }
     .brand-text h2 {
         margin: 0;
-        font-size: 1.22rem;
+        font-size: 1.15rem;
         font-weight: 800;
         color: #ffffff !important;
         letter-spacing: -0.3px;
     }
     .brand-text p {
         margin: 0;
-        font-size: 0.72rem;
+        font-size: 0.70rem;
         color: #94a3b8 !important;
         letter-spacing: 0.3px;
     }
@@ -167,19 +181,19 @@ if HAS_STREAMLIT:
     .sidebar-nav-item {
         display: flex;
         align-items: center;
-        gap: 12px;
-        padding: 9px 14px;
-        border-radius: 10px;
+        gap: 10px;
+        padding: 7px 12px;
+        border-radius: 8px;
         background: linear-gradient(135deg, #5b37e8 0%, #6d4aff 100%);
         color: #ffffff !important;
         font-weight: 600;
-        font-size: 0.90rem;
-        margin-bottom: 14px;
-        box-shadow: 0 4px 12px rgba(91, 55, 232, 0.35);
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        box-shadow: 0 2px 8px rgba(91, 55, 232, 0.3);
     }
 
     /* ========================================================================= */
-    /* ALL BUTTONS: EXPLICIT HIGH CONTRAST & VISIBLE TEXT                       */
+    /* ALL BUTTONS: VIVID GRADIENT & 100% VISIBLE CRISP WHITE TEXT              */
     /* ========================================================================= */
     .stButton > button, 
     .stDownloadButton > button,
@@ -187,23 +201,22 @@ if HAS_STREAMLIT:
     [data-testid="stBaseButton-primary"] {
         background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
         color: #ffffff !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        border-radius: 10px !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        border-radius: 8px !important;
         font-weight: 700 !important;
-        font-size: 0.92rem !important;
-        padding: 10px 20px !important;
-        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4) !important;
-        transition: all 0.2s ease !important;
-        letter-spacing: 0.2px;
+        font-size: 0.86rem !important;
+        padding: 7px 14px !important;
+        box-shadow: 0 3px 10px rgba(79, 70, 229, 0.35) !important;
+        transition: all 0.15s ease !important;
     }
     .stButton > button:hover, 
     .stDownloadButton > button:hover {
         background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%) !important;
         color: #ffffff !important;
-        box-shadow: 0 6px 18px rgba(79, 70, 229, 0.55) !important;
+        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.5) !important;
         transform: translateY(-1px) !important;
     }
-    .stButton > button * {
+    .stButton > button *, .stDownloadButton > button * {
         color: #ffffff !important;
         font-weight: 700 !important;
     }
@@ -214,203 +227,206 @@ if HAS_STREAMLIT:
         color: #ffffff !important;
         font-weight: 700 !important;
         border-radius: 8px !important;
-        border: none !important;
+        padding: 6px 14px !important;
     }
     [data-testid="stCameraInput"] button * {
         color: #ffffff !important;
     }
 
-    /* Top KPI Header Cards */
-    .kpi-row {
+    /* Compact Horizontal KPI Bar */
+    .kpi-bar {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
-        margin-bottom: 16px;
+        gap: 10px;
+        margin-bottom: 8px;
     }
-    .kpi-card-dark {
+    .kpi-pill {
         background: rgba(22, 17, 48, 0.85);
         border: 1px solid rgba(139, 92, 246, 0.22);
-        border-radius: 14px;
-        padding: 14px 18px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-        display: flex;
-        align-items: center;
-        gap: 14px;
-    }
-    .kpi-icon-box {
-        width: 44px;
-        height: 44px;
         border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.3rem;
-    }
-    .kpi-icon-purple { background: rgba(139, 92, 246, 0.2); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3); }
-    .kpi-icon-green  { background: rgba(34, 197, 94, 0.15); color: #86efac; border: 1px solid rgba(34, 197, 94, 0.3); }
-    .kpi-icon-red    { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); }
-    .kpi-icon-indigo { background: rgba(99, 102, 241, 0.2); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.3); }
-
-    .kpi-info-title {
-        font-size: 0.74rem;
-        font-weight: 600;
-        color: #94a3b8;
-        text-transform: uppercase;
-        letter-spacing: 0.4px;
-        margin-bottom: 2px;
-    }
-    .kpi-info-val-row {
-        display: flex;
-        align-items: baseline;
-        gap: 8px;
-    }
-    .kpi-info-val {
-        font-size: 1.45rem;
-        font-weight: 800;
-        color: #ffffff;
-        letter-spacing: -0.4px;
-    }
-    .kpi-tag-green {
-        font-size: 0.72rem;
-        font-weight: 700;
-        color: #4ade80;
-        background: rgba(34, 197, 94, 0.15);
-        padding: 2px 6px;
-        border-radius: 5px;
-    }
-    .kpi-tag-red {
-        font-size: 0.72rem;
-        font-weight: 700;
-        color: #f87171;
-        background: rgba(239, 68, 68, 0.15);
-        padding: 2px 6px;
-        border-radius: 5px;
-    }
-
-    /* Content Cards (Dark Glassmorphism) */
-    .dark-card {
-        background: rgba(22, 17, 48, 0.75);
-        border: 1px solid rgba(139, 92, 246, 0.20);
-        border-radius: 16px;
-        padding: 20px 22px;
-        margin-bottom: 16px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-    .card-header-flex {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 16px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .card-header-title {
-        font-size: 1.15rem;
-        font-weight: 700;
-        color: #ffffff;
+        padding: 8px 12px;
         display: flex;
         align-items: center;
         gap: 10px;
-        margin: 0;
+    }
+    .kpi-pill-icon {
+        font-size: 1.15rem;
+    }
+    .kpi-pill-title {
+        font-size: 0.70rem;
+        font-weight: 600;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+    .kpi-pill-val-row {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+    }
+    .kpi-pill-val {
+        font-size: 1.20rem;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: -0.3px;
+    }
+    .kpi-tag-green {
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #4ade80;
+        background: rgba(34, 197, 94, 0.15);
+        padding: 1px 5px;
+        border-radius: 4px;
+    }
+    .kpi-tag-red {
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #f87171;
+        background: rgba(239, 68, 68, 0.15);
+        padding: 1px 5px;
+        border-radius: 4px;
     }
 
-    /* Uploader Dropzone Styling */
-    [data-testid="stFileUploader"] {
-        background: rgba(30, 22, 65, 0.6) !important;
-        border: 2px dashed #8b5cf6 !important;
-        border-radius: 12px !important;
-        padding: 16px !important;
-    }
-    [data-testid="stFileUploader"]:hover {
-        border-color: #a78bfa !important;
-        background: rgba(40, 30, 85, 0.7) !important;
-    }
-
-    /* Verdict Banners */
-    .badge-flagged-card {
-        background: linear-gradient(135deg, rgba(239, 68, 68, 0.18) 0%, rgba(185, 28, 28, 0.25) 100%);
-        border: 1.5px solid #ef4444;
-        color: #fca5a5;
-        padding: 14px 18px;
+    /* Compact Content Cards */
+    .dark-card-compact {
+        background: rgba(22, 17, 48, 0.80);
+        border: 1px solid rgba(139, 92, 246, 0.20);
         border-radius: 12px;
-        font-weight: 800;
-        font-size: 1.15rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 14px;
-        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+        padding: 12px 16px;
+        margin-bottom: 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
-    .badge-verified-card {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.18) 0%, rgba(5, 150, 105, 0.25) 100%);
-        border: 1.5px solid #10b981;
-        color: #86efac;
-        padding: 14px 18px;
-        border-radius: 12px;
-        font-weight: 800;
-        font-size: 1.15rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 14px;
-        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
-    }
-    .badge-abstain-card {
-        background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(180, 83, 9, 0.25) 100%);
-        border: 1.5px solid #f59e0b;
-        color: #fde68a;
-        padding: 14px 18px;
-        border-radius: 12px;
-        font-weight: 800;
-        font-size: 1.15rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 14px;
-        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
-    }
-
-    /* Line-by-Line Telemetry Table */
-    .telemetry-row {
+    .card-header-compact {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 9px 12px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        font-size: 0.88rem;
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .telemetry-row:last-child {
+    .card-header-compact h3 {
+        font-size: 1.0rem;
+        font-weight: 700;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+    }
+
+    /* Image Preview Constraints (Stops Long Vertical Expansion) */
+    [data-testid="stImage"] img {
+        max-height: 340px !important;
+        object-fit: contain !important;
+        border-radius: 10px !important;
+        margin: 0 auto !important;
+        border: 1px solid rgba(139, 92, 246, 0.25);
+    }
+
+    /* Compact Uploader Dropzone */
+    [data-testid="stFileUploader"] {
+        background: rgba(30, 22, 65, 0.5) !important;
+        border: 1.5px dashed #8b5cf6 !important;
+        border-radius: 10px !important;
+        padding: 8px 12px !important;
+    }
+    [data-testid="stFileUploader"]:hover {
+        border-color: #a78bfa !important;
+        background: rgba(40, 30, 85, 0.6) !important;
+    }
+
+    /* Compact Verdict Banners */
+    .badge-flagged-compact {
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.22) 0%, rgba(185, 28, 28, 0.30) 100%);
+        border: 1.5px solid #ef4444;
+        color: #fca5a5;
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 1.02rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+    .badge-verified-compact {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, rgba(5, 150, 105, 0.30) 100%);
+        border: 1.5px solid #10b981;
+        color: #86efac;
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 1.02rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+    .badge-abstain-compact {
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.22) 0%, rgba(180, 83, 9, 0.30) 100%);
+        border: 1.5px solid #f59e0b;
+        color: #fde68a;
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 1.02rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    /* Tight Line-by-Line Telemetry Table */
+    .telemetry-row-compact {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.81rem;
+    }
+    .telemetry-row-compact:last-child {
         border-bottom: none;
     }
-    .telemetry-key {
+    .telemetry-key-compact {
         color: #94a3b8;
         font-weight: 500;
     }
-    .telemetry-val {
+    .telemetry-val-compact {
         color: #ffffff;
         font-weight: 700;
     }
 
-    /* Tabs Styling */
+    /* Compact Tabs Styling */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.05);
-        padding: 4px;
-        border-radius: 10px;
-        margin-bottom: 12px;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 3px;
+        border-radius: 8px;
+        margin-bottom: 6px;
     }
     .stTabs [data-baseweb="tab"] {
-        border-radius: 8px;
-        font-size: 0.85rem;
+        border-radius: 6px;
+        font-size: 0.82rem;
         font-weight: 600;
         color: #94a3b8;
         background: transparent;
         border: none;
-        padding: 6px 16px;
+        padding: 4px 12px;
     }
     .stTabs [aria-selected="true"] {
         background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
         color: #ffffff !important;
+    }
+
+    /* Metric Widget Overrides */
+    [data-testid="stMetricValue"] {
+        font-size: 1.6rem !important;
+        font-weight: 800 !important;
+    }
+    [data-testid="stMetricLabel"] {
+        font-size: 0.78rem !important;
+        color: #94a3b8 !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -432,7 +448,7 @@ if HAS_STREAMLIT:
         </div>
         """, unsafe_allow_html=True)
 
-        st.markdown("<p style='font-size:0.78rem; text-transform:uppercase; letter-spacing:0.5px; color:#94a3b8; font-weight:700; margin-bottom:8px;'>Forensic Controls</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:0.75rem; text-transform:uppercase; letter-spacing:0.4px; color:#94a3b8; font-weight:700; margin-bottom:6px;'>Forensic Controls</p>", unsafe_allow_html=True)
 
         demo_options = {
             "Custom Upload": None,
@@ -456,116 +472,98 @@ if HAS_STREAMLIT:
         )
         decision_mode = "direct" if "Direct" in decision_mode_choice else "forensic"
 
-        st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
-        st.markdown("<p style='font-size:0.78rem; text-transform:uppercase; letter-spacing:0.5px; color:#94a3b8; font-weight:700; margin-bottom:8px;'>System Telemetry</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:0.75rem; text-transform:uppercase; letter-spacing:0.4px; color:#94a3b8; font-weight:700; margin-top:10px; margin-bottom:6px;'>System Telemetry</p>", unsafe_allow_html=True)
         st.markdown(f"""
-        <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 12px; font-size: 0.82rem; border: 1px solid rgba(255,255,255,0.06);">
-            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px; font-size: 0.78rem; border: 1px solid rgba(255,255,255,0.06);">
+            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
                 <span style="color:#94a3b8;">Backbone:</span>
                 <span style="color:#a5b4fc; font-weight:600;">{config.get('model_architecture', 'efficientnet_b0')}</span>
             </div>
-            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
                 <span style="color:#94a3b8;">Compute:</span>
                 <span style="color:#4ade80; font-weight:600;">{device.upper()} (RTX 3050)</span>
             </div>
-            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
                 <span style="color:#94a3b8;">Temperature T:</span>
                 <span style="color:#e2e8f0; font-weight:600;">{config.get('calibration', {}).get('temperature', 0.9041)}</span>
             </div>
             <div style="display:flex; justify-content:space-between;">
                 <span style="color:#94a3b8;">Decision Rule:</span>
-                <span style="color:#e2e8f0; font-weight:600;">{'Real < 0.58 | Synthetic ≥ 0.58' if decision_mode=='direct' else 'Real ≤ 0.35 | Synthetic ≥ 0.65'}</span>
+                <span style="color:#e2e8f0; font-weight:600;">{'Real < 0.58 | Fake ≥ 0.58' if decision_mode=='direct' else 'Real ≤ 0.35 | Fake ≥ 0.65'}</span>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
         st.markdown("""
-        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; margin-top: 20px; text-align: center;">
-            <div style="font-size: 1.5rem; margin-bottom: 4px;">🛡️ ✨</div>
-            <p style="margin:0; font-size: 0.80rem; font-weight: 600; color: #ffffff;">AI for a More Trustworthy Digital World</p>
-            <p style="margin:2px 0 0 0; font-size: 0.70rem; color: #94a3b8;">Forensic Identity Verification</p>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 10px; margin-top: 14px; text-align: center;">
+            <p style="margin:0; font-size: 0.76rem; font-weight: 600; color: #ffffff;">AI for a More Trustworthy Digital World ✨</p>
+            <p style="margin:2px 0 0 0; font-size: 0.68rem; color: #94a3b8;">Forensic Identity Verification</p>
         </div>
         """, unsafe_allow_html=True)
 
     # ==============================================================================
-    # Top Compact Header Banner & Status
+    # Top Sleek Header Bar & KPI Inline Strip
     # ==============================================================================
-    hdr_c1, hdr_c2 = st.columns([2.5, 1.0])
-    with hdr_c1:
-        st.markdown("""
-        <div style="margin-bottom: 12px;">
-            <h1 style="font-size: 2.1rem; font-weight: 800; color: #ffffff; margin: 0 0 4px 0; letter-spacing: -0.5px;">
-                Deepfake Image Detection System
+    st.markdown(f"""
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+        <div>
+            <h1 style="font-size: 1.55rem; font-weight: 800; color: #ffffff; margin: 0; letter-spacing: -0.4px; display: flex; align-items: center; gap: 8px;">
+                <span>🛡️</span> Deepfake Image Detection System
             </h1>
-            <p style="font-size: 0.92rem; color: #94a3b8; margin: 0; font-weight: 500;">
+            <p style="font-size: 0.80rem; color: #94a3b8; margin: 0; font-weight: 500;">
                 Automated still-image forensic analysis for digital identity verification with calibrated uncertainty estimation.
             </p>
         </div>
-        """, unsafe_allow_html=True)
-
-    with hdr_c2:
-        st.markdown(f"""
-        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding-top: 6px;">
-            <div style="background: rgba(16, 185, 129, 0.15); color: #86efac; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; display: flex; align-items: center; gap: 6px; border: 1px solid rgba(16, 185, 129, 0.3);">
-                <span style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%; display: inline-block;"></span>
-                Model Ready (RTX 3050 CUDA)
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="background: rgba(16, 185, 129, 0.15); color: #86efac; padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; border: 1px solid rgba(16, 185, 129, 0.3);">
+                🟢 Model Ready (RTX 3050 CUDA)
             </div>
-            <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.90rem;">
+            <div style="background: rgba(99, 102, 241, 0.15); color: #c4b5fd; padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; border: 1px solid rgba(99, 102, 241, 0.3);">
+                🎯 96.1% Accuracy
+            </div>
+            <div style="width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.80rem;">
                 K
             </div>
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
 
-    # ==============================================================================
-    # Top KPI Metrics Row (Compact 4-Card Grid)
-    # ==============================================================================
+    # Compact Horizontal KPI Strip
     st.markdown("""
-    <div class="kpi-row">
-        <div class="kpi-card-dark">
-            <div class="kpi-icon-box kpi-icon-purple">🖼️</div>
+    <div class="kpi-bar">
+        <div class="kpi-pill">
+            <span class="kpi-pill-icon">🖼️</span>
             <div>
-                <div class="kpi-info-title">Total Analyses</div>
-                <div class="kpi-info-val-row">
-                    <span class="kpi-info-val">1,248</span>
-                    <span class="kpi-tag-green">↑ 12%</span>
-                </div>
+                <div class="kpi-pill-title">Total Analyses</div>
+                <div class="kpi-pill-val-row"><span class="kpi-pill-val">1,248</span> <span class="kpi-tag-green">↑ 12%</span></div>
             </div>
         </div>
-        <div class="kpi-card-dark">
-            <div class="kpi-icon-box kpi-icon-green">🛡️</div>
+        <div class="kpi-pill">
+            <span class="kpi-pill-icon">🛡️</span>
             <div>
-                <div class="kpi-info-title">Real Specificity</div>
-                <div class="kpi-info-val-row">
-                    <span class="kpi-info-val">95.2%</span>
-                    <span class="kpi-tag-green">↑ 5%</span>
-                </div>
+                <div class="kpi-pill-title">Real Specificity</div>
+                <div class="kpi-pill-val-row"><span class="kpi-pill-val">95.2%</span> <span class="kpi-tag-green">714 / 750</span></div>
             </div>
         </div>
-        <div class="kpi-card-dark">
-            <div class="kpi-icon-box kpi-icon-red">🚨</div>
+        <div class="kpi-pill">
+            <span class="kpi-pill-icon">🚨</span>
             <div>
-                <div class="kpi-info-title">Fake Sensitivity</div>
-                <div class="kpi-info-val-row">
-                    <span class="kpi-info-val">96.9%</span>
-                    <span class="kpi-tag-red">96.9% Recall</span>
-                </div>
+                <div class="kpi-pill-title">Fake Sensitivity</div>
+                <div class="kpi-pill-val-row"><span class="kpi-pill-val">96.9%</span> <span class="kpi-tag-red">727 / 750</span></div>
             </div>
         </div>
-        <div class="kpi-card-dark">
-            <div class="kpi-icon-box kpi-icon-indigo">🎯</div>
+        <div class="kpi-pill">
+            <span class="kpi-pill-icon">🎯</span>
             <div>
-                <div class="kpi-info-title">Model Accuracy</div>
-                <div class="kpi-info-val-row">
-                    <span class="kpi-info-val">96.1%</span>
-                    <span class="kpi-tag-green">AUC: 0.992</span>
-                </div>
+                <div class="kpi-pill-title">ROC-AUC Score</div>
+                <div class="kpi-pill-val-row"><span class="kpi-pill-val">0.9922</span> <span class="kpi-tag-green">ECE: 0.0118</span></div>
             </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
     # ==============================================================================
-    # Session State Initialization for Seamless Multi-Image Analysis (No Refresh Needed)
+    # Session State Initialization for Seamless Multi-Image Analysis
     # ==============================================================================
     if "uploader_key" not in st.session_state:
         st.session_state.uploader_key = 0
@@ -581,7 +579,7 @@ if HAS_STREAMLIT:
         st.session_state.last_demo_selection = "Custom Upload"
 
     # ==============================================================================
-    # Input Selection Bar (Tabs: Upload, Camera, Quick Samples)
+    # Input Selection Bar (Compact Tabs: Upload, Camera, Quick Samples)
     # ==============================================================================
     with st.container():
         input_tabs = st.tabs(["📥 Drag & Drop / File Upload", "📸 Live Camera Capture", "⚡ Quick Sample Portraits"])
@@ -594,7 +592,6 @@ if HAS_STREAMLIT:
                 help="Drag and drop or browse files. Full decompression safety and magic bytes checks applied."
             )
             if file_uploader_widget is not None:
-                # Detect new or changed file upload
                 if file_uploader_widget.name != st.session_state.last_file_name:
                     st.session_state.active_bytes = file_uploader_widget.getvalue()
                     st.session_state.active_filename = file_uploader_widget.name
@@ -615,7 +612,7 @@ if HAS_STREAMLIT:
                     st.rerun()
 
         with input_tabs[2]:
-            st.markdown("<p style='font-size:0.85rem; color:#94a3b8; margin-bottom:10px;'>Select any verified benchmark portrait to run instant detection:</p>", unsafe_allow_html=True)
+            st.markdown("<p style='font-size:0.80rem; color:#94a3b8; margin: 2px 0 6px 0;'>Select any verified benchmark portrait to run instant detection:</p>", unsafe_allow_html=True)
             sq1, sq2, sq3, sq4 = st.columns(4)
             with sq1:
                 if st.button("Authentic Real 1", use_container_width=True, key="btn_quick_real1"):
@@ -663,8 +660,6 @@ if HAS_STREAMLIT:
                     st.session_state.uploader_key += 1
                     st.rerun()
 
-    st.write("")
-
     # Retrieve current active image
     uploaded_bytes = st.session_state.active_bytes
     source_filename = st.session_state.active_filename or "upload.jpg"
@@ -688,14 +683,14 @@ if HAS_STREAMLIT:
         calib_score = report.get("calibrated_score", 0.5) or 0.5
         pct_score = calib_score * 100.0
 
-        col_img, col_metrics = st.columns([1.0, 1.2], gap="large")
+        col_img, col_metrics = st.columns([1.0, 1.25], gap="medium")
 
-        # --- LEFT: Image Visual Inspection ---
+        # --- LEFT: Image Visual Inspection (Compact) ---
         with col_img:
             st.markdown("""
-            <div class="dark-card">
-                <div class="card-header-flex">
-                    <h3 class="card-header-title">🖼️ Image Visual Inspection</h3>
+            <div class="dark-card-compact">
+                <div class="card-header-compact">
+                    <h3>🖼️ Image Visual Inspection</h3>
                 </div>
             """, unsafe_allow_html=True)
 
@@ -712,7 +707,7 @@ if HAS_STREAMLIT:
             else:
                 st.error(f"Security Ingestion Block: {report.get('error_message', 'Invalid payload')}")
 
-            # Direct Reset / Clear Button on Left Card
+            # Reset Button directly under image
             if st.button("🔄 Clear / Analyze Another Image", key="btn_clear_image_left", use_container_width=True):
                 st.session_state.active_bytes = None
                 st.session_state.active_filename = None
@@ -726,43 +721,19 @@ if HAS_STREAMLIT:
         # --- RIGHT: Diagnostic Telemetry & All Metrics Line-by-Line ---
         with col_metrics:
             st.markdown("""
-            <div class="dark-card">
-                <div class="card-header-flex">
-                    <h3 class="card-header-title">🔍 Diagnostic Telemetry & Verdict</h3>
-                </div>
-            """, unsafe_allow_html=True)
-
-            if report["is_valid"]:
-                try:
-                    preview_img = PIL.Image.open(io.BytesIO(uploaded_bytes))
-                    st.image(
-                        preview_img,
-                        use_container_width=True,
-                        caption=f"Asset: {report.get('filename')} ({report.get('dimensions', ['-','-'])[0]}x{report.get('dimensions', ['-','-'])[1]} px)"
-                    )
-                except Exception:
-                    st.warning("Could not render image preview.")
-            else:
-                st.error(f"Security Ingestion Block: {report.get('error_message', 'Invalid payload')}")
-
-            st.markdown("</div>", unsafe_allow_html=True)
-
-        # --- RIGHT: Diagnostic Telemetry & All Metrics Line-by-Line ---
-        with col_metrics:
-            st.markdown("""
-            <div class="dark-card">
-                <div class="card-header-flex">
-                    <h3 class="card-header-title">🔍 Diagnostic Telemetry & Verdict</h3>
+            <div class="dark-card-compact">
+                <div class="card-header-compact">
+                    <h3>🔍 Diagnostic Telemetry & Verdict</h3>
                 </div>
             """, unsafe_allow_html=True)
 
             # 1. Main Verdict Banner
             if status == "FLAGGED":
-                st.markdown(f'<div class="badge-flagged-card">🚨 {verdict}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="badge-flagged-compact">🚨 {verdict}</div>', unsafe_allow_html=True)
             elif status == "VERIFIED":
-                st.markdown(f'<div class="badge-verified-card">✅ {verdict}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="badge-verified-compact">✅ {verdict}</div>', unsafe_allow_html=True)
             else:
-                st.markdown(f'<div class="badge-abstain-card">⚠️ {verdict}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="badge-abstain-compact">⚠️ {verdict}</div>', unsafe_allow_html=True)
 
             # 2. Primary Calibrated Metric & Progress Bar
             st.metric(
@@ -779,15 +750,11 @@ if HAS_STREAMLIT:
             else:
                 st.caption("🟡 Score lies in uncertainty margin (0.35 - 0.65). Mandates human analyst triage.")
 
-            st.write("")
-
             # 3. Middle 3-Column Latency & Hash Row
             m_c1, m_c2, m_c3 = st.columns(3)
             m_c1.metric("Model Latency", f"{report.get('model_forward_ms', 0.0):.1f} ms")
             m_c2.metric("Total Pipeline", f"{report.get('total_pipeline_ms', 0.0):.1f} ms")
             m_c3.metric("SHA-256", f"{report.get('sha256', 'N/A')[:8]}...")
-
-            st.write("")
 
             # 4. Deep Forensic Telemetry (ALL METRICS LINE-BY-LINE)
             exif_info = report.get("exif_summary", {})
@@ -795,40 +762,40 @@ if HAS_STREAMLIT:
             laplacian_val = quality.get("laplacian_variance", 0.0)
 
             st.markdown(f"""
-            <div style="background: rgba(14, 9, 36, 0.9); border: 1px solid rgba(139, 92, 246, 0.25); border-radius: 12px; padding: 6px 12px; margin-bottom: 16px;">
-                <div class="telemetry-row">
-                    <span class="telemetry-key">Camera Make / Model:</span>
-                    <span class="telemetry-val"><code>{exif_info.get('camera_make', 'None')}</code> / <code>{exif_info.get('camera_model', 'None')}</code></span>
+            <div style="background: rgba(14, 9, 36, 0.9); border: 1px solid rgba(139, 92, 246, 0.22); border-radius: 10px; padding: 4px 8px; margin: 8px 0 10px 0;">
+                <div class="telemetry-row-compact">
+                    <span class="telemetry-key-compact">Camera Make / Model:</span>
+                    <span class="telemetry-val-compact"><code>{exif_info.get('camera_make', 'None')}</code> / <code>{exif_info.get('camera_model', 'None')}</code></span>
                 </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-key">Software Flag:</span>
-                    <span class="telemetry-val"><code>{exif_info.get('software', 'None')}</code></span>
+                <div class="telemetry-row-compact">
+                    <span class="telemetry-key-compact">Software Flag:</span>
+                    <span class="telemetry-val-compact"><code>{exif_info.get('software', 'None')}</code></span>
                 </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-key">Original Timestamp:</span>
-                    <span class="telemetry-val"><code>{exif_info.get('datetime_original', 'None')}</code></span>
+                <div class="telemetry-row-compact">
+                    <span class="telemetry-key-compact">Original Timestamp:</span>
+                    <span class="telemetry-val-compact"><code>{exif_info.get('datetime_original', 'None')}</code></span>
                 </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-key">Focus Laplacian Variance:</span>
-                    <span class="telemetry-val" style="color: {'#4ade80' if laplacian_val >= 100 else '#f87171'};">
-                        {laplacian_val:.2f} <span style="font-size:0.75rem; color:#94a3b8;">(Threshold: ≥ 100.0)</span>
+                <div class="telemetry-row-compact">
+                    <span class="telemetry-key-compact">Focus Laplacian Variance:</span>
+                    <span class="telemetry-val-compact" style="color: {'#4ade80' if laplacian_val >= 100 else '#f87171'};">
+                        {laplacian_val:.2f} <span style="font-size:0.72rem; color:#94a3b8;">(Threshold: ≥ 100.0)</span>
                     </span>
                 </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-key">Shannon Entropy:</span>
-                    <span class="telemetry-val">{quality.get('entropy', 0.0):.2f} bits/pixel</span>
+                <div class="telemetry-row-compact">
+                    <span class="telemetry-key-compact">Shannon Entropy:</span>
+                    <span class="telemetry-val-compact">{quality.get('entropy', 0.0):.2f} bits/pixel</span>
                 </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-key">Multi-View Architecture:</span>
-                    <span class="telemetry-val">Global (224px) + Face ROI Zoom (80%)</span>
+                <div class="telemetry-row-compact">
+                    <span class="telemetry-key-compact">Multi-View Architecture:</span>
+                    <span class="telemetry-val-compact">Global (224px) + Face ROI Zoom (80%)</span>
                 </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-key">Platt Calibration Temp T:</span>
-                    <span class="telemetry-val"><code>{report.get('temperature_used', 0.9041)}</code> <span style="font-size:0.75rem; color:#4ade80;">(ECE: 0.0118)</span></span>
+                <div class="telemetry-row-compact">
+                    <span class="telemetry-key-compact">Platt Calibration Temp T:</span>
+                    <span class="telemetry-val-compact"><code>{report.get('temperature_used', 0.9041)}</code> <span style="font-size:0.72rem; color:#4ade80;">(ECE: 0.0118)</span></span>
                 </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-key">Decision Rule Applied:</span>
-                    <span class="telemetry-val"><code>{'Real < 0.58 | Synthetic ≥ 0.58' if decision_mode=='direct' else 'Real ≤ 0.35 | Synthetic ≥ 0.65'}</code></span>
+                <div class="telemetry-row-compact">
+                    <span class="telemetry-key-compact">Decision Rule Applied:</span>
+                    <span class="telemetry-val-compact"><code>{'Real < 0.58 | Fake ≥ 0.58' if decision_mode=='direct' else 'Real ≤ 0.35 | Fake ≥ 0.65'}</code></span>
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -864,23 +831,23 @@ if HAS_STREAMLIT:
 
             st.markdown("</div>", unsafe_allow_html=True)
 
-        # Mandatory Legal Disclaimer Banner
+        # Mandatory Legal Disclaimer Banner (Compact 1-liner)
         st.markdown(f"""
-        <div style="background: rgba(22, 17, 48, 0.7); border-radius: 10px; padding: 12px 18px; font-size: 0.82rem; color: #94a3b8; border: 1px solid rgba(139, 92, 246, 0.15); margin-top: 10px;">
-            <b>⚖️ Mandatory Forensic & Legal Notice:</b> {report.get('disclaimer', '')}
+        <div style="background: rgba(22, 17, 48, 0.65); border-radius: 8px; padding: 8px 14px; font-size: 0.76rem; color: #94a3b8; border: 1px solid rgba(139, 92, 246, 0.12); margin-top: 4px;">
+            <b>⚖️ Mandatory Forensic Notice:</b> Academic diagnostic triage prototype. Reflects machine learning statistical pattern consistency; does not constitute standalone legal proof of fraud or identity.
         </div>
         """, unsafe_allow_html=True)
 
     else:
         # Standby View when No Image is Loaded Yet
         st.markdown("""
-        <div class="dark-card" style="text-align: center; padding: 50px 20px;">
-            <div style="font-size: 3rem; margin-bottom: 10px;">🖼️ ⬆️</div>
-            <h3 style="color: #ffffff; font-weight: 800; margin-bottom: 6px;">Select an Image to Inspect</h3>
-            <p style="color: #94a3b8; font-size: 0.92rem; max-width: 500px; margin: 0 auto 16px auto;">
+        <div class="dark-card-compact" style="text-align: center; padding: 36px 16px;">
+            <div style="font-size: 2.4rem; margin-bottom: 6px;">🖼️ ⬆️</div>
+            <h3 style="color: #ffffff; font-weight: 800; margin-bottom: 4px; font-size: 1.15rem;">Select an Image to Inspect</h3>
+            <p style="color: #94a3b8; font-size: 0.85rem; max-width: 480px; margin: 0 auto 12px auto;">
                 Drop any portrait photo into the uploader above, capture a photo using your webcam, or choose one of the quick samples to view real-time forensic telemetry.
             </p>
-            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(99, 102, 241, 0.2); color: #c4b5fd; padding: 6px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; border: 1px solid rgba(99, 102, 241, 0.35);">
+            <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(99, 102, 241, 0.18); color: #c4b5fd; padding: 4px 12px; border-radius: 16px; font-size: 0.76rem; font-weight: 700; border: 1px solid rgba(99, 102, 241, 0.30);">
                 <span>⚡</span> <span>NVIDIA GeForce RTX 3050 CUDA Engine Active</span>
             </div>
         </div>
