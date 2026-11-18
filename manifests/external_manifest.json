@@ -1,0 +1,602 @@
+[
+  {
+    "asset_id": "external_test_Pristine_Camera_0600",
+    "relative_path": "data/processed/external/real/ext_real_0000.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "172d72f5f49bb8b1f6365f33d50c25286c203d9f4ab503428b4edede93f02803",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50815
+  },
+  {
+    "asset_id": "external_test_DALL-E_3_0600",
+    "relative_path": "data/processed/external/fake/ext_fake_0000.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "DALL-E_3",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0601",
+    "relative_path": "data/processed/external/real/ext_real_0001.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "b31d22cf0e66ab6f87d7ea3121a314a68baa45a59e476eadde2d872f59ade81c",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50779
+  },
+  {
+    "asset_id": "external_test_SDXL_0601",
+    "relative_path": "data/processed/external/fake/ext_fake_0001.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "SDXL",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0602",
+    "relative_path": "data/processed/external/real/ext_real_0002.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "02c0c3eeb61c0de9cda26c5050b1331034ec48469f74a9bcd17026b55602811a",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 51022
+  },
+  {
+    "asset_id": "external_test_DALL-E_3_0602",
+    "relative_path": "data/processed/external/fake/ext_fake_0002.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "DALL-E_3",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0603",
+    "relative_path": "data/processed/external/real/ext_real_0003.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "b7f797af5bf5f0791f5faaec329b63e7a8c1e676074cfb25f4af57f81bfba566",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50931
+  },
+  {
+    "asset_id": "external_test_SDXL_0603",
+    "relative_path": "data/processed/external/fake/ext_fake_0003.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "SDXL",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0604",
+    "relative_path": "data/processed/external/real/ext_real_0004.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "4d2e231ab9f07f7955b99658749c27e8a3a953a6844baddadf7a6f9e9573a0a4",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50831
+  },
+  {
+    "asset_id": "external_test_DALL-E_3_0604",
+    "relative_path": "data/processed/external/fake/ext_fake_0004.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "DALL-E_3",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0605",
+    "relative_path": "data/processed/external/real/ext_real_0005.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "037c0a9bb06a3134a9c00acd49a7b48c7cb9bbabb81523a733db7f7a9fbf3cee",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50788
+  },
+  {
+    "asset_id": "external_test_SDXL_0605",
+    "relative_path": "data/processed/external/fake/ext_fake_0005.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "SDXL",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0606",
+    "relative_path": "data/processed/external/real/ext_real_0006.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "12bdfbf1c7805f648c9f9c175422e9f47773a446640d5565ae1954cc50cf1ab0",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50845
+  },
+  {
+    "asset_id": "external_test_DALL-E_3_0606",
+    "relative_path": "data/processed/external/fake/ext_fake_0006.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "DALL-E_3",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0607",
+    "relative_path": "data/processed/external/real/ext_real_0007.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "96248ac6a94f7610bb924cf88707d1fc7d78b187a01b7df103b1c8de9fccb0ab",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50934
+  },
+  {
+    "asset_id": "external_test_SDXL_0607",
+    "relative_path": "data/processed/external/fake/ext_fake_0007.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "SDXL",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0608",
+    "relative_path": "data/processed/external/real/ext_real_0008.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "3fcc30cb59b697f922c2e2909e07d6404a8fa31be7d776f25f18c59f29d2d5ae",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50875
+  },
+  {
+    "asset_id": "external_test_DALL-E_3_0608",
+    "relative_path": "data/processed/external/fake/ext_fake_0008.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "DALL-E_3",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0609",
+    "relative_path": "data/processed/external/real/ext_real_0009.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "2b064107d256434b3be006fa33eb6a685aba318f813ab249b8439902dc6c477f",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50865
+  },
+  {
+    "asset_id": "external_test_SDXL_0609",
+    "relative_path": "data/processed/external/fake/ext_fake_0009.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "SDXL",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0610",
+    "relative_path": "data/processed/external/real/ext_real_0010.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "dfa01d2f021ac8ff60fb10f05c5bf9b8d14353c0cce2e5e7e31920e1785d04a4",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50958
+  },
+  {
+    "asset_id": "external_test_DALL-E_3_0610",
+    "relative_path": "data/processed/external/fake/ext_fake_0010.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "DALL-E_3",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0611",
+    "relative_path": "data/processed/external/real/ext_real_0011.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "edc6d96323bb2281fd86307764b8ee96f93a60050e5f368e32442c7ad0f9b85c",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50984
+  },
+  {
+    "asset_id": "external_test_SDXL_0611",
+    "relative_path": "data/processed/external/fake/ext_fake_0011.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "SDXL",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0612",
+    "relative_path": "data/processed/external/real/ext_real_0012.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "1c401b2c36e99d45772d7790ddd2ff35fa126352c0a0d48873e6c454ed03a518",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50896
+  },
+  {
+    "asset_id": "external_test_DALL-E_3_0612",
+    "relative_path": "data/processed/external/fake/ext_fake_0012.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "DALL-E_3",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0613",
+    "relative_path": "data/processed/external/real/ext_real_0013.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "477807150a0f3f6f4185eafc14368a04ec23038e943974201b9c95f299a98ee3",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50682
+  },
+  {
+    "asset_id": "external_test_SDXL_0613",
+    "relative_path": "data/processed/external/fake/ext_fake_0013.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "SDXL",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0614",
+    "relative_path": "data/processed/external/real/ext_real_0014.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "defb96d444ba213494629e6392e9c04a089d6900eb947eb224cc42714754a355",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50816
+  },
+  {
+    "asset_id": "external_test_DALL-E_3_0614",
+    "relative_path": "data/processed/external/fake/ext_fake_0014.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "DALL-E_3",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0615",
+    "relative_path": "data/processed/external/real/ext_real_0015.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "0f90c696d9a7fcbc8e35ad170b07d37c801b9a48d5be81ac5f4d62735026c9da",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50897
+  },
+  {
+    "asset_id": "external_test_SDXL_0615",
+    "relative_path": "data/processed/external/fake/ext_fake_0015.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "SDXL",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0616",
+    "relative_path": "data/processed/external/real/ext_real_0016.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "08142daea68760db6e48ef146ce7d97b6f6eacbdc1b5c99878ce8dc88c267081",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50886
+  },
+  {
+    "asset_id": "external_test_DALL-E_3_0616",
+    "relative_path": "data/processed/external/fake/ext_fake_0016.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "DALL-E_3",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0617",
+    "relative_path": "data/processed/external/real/ext_real_0017.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "c5c8cd0e7b93629e1c35d61b06de4b530e2882e324d5f177bf010aac00127d73",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50755
+  },
+  {
+    "asset_id": "external_test_SDXL_0617",
+    "relative_path": "data/processed/external/fake/ext_fake_0017.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "SDXL",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0618",
+    "relative_path": "data/processed/external/real/ext_real_0018.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "1feab0e4413fbd3ffc8255917cb4312da37c792dabb3d937d2a833eaef1de67f",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50900
+  },
+  {
+    "asset_id": "external_test_DALL-E_3_0618",
+    "relative_path": "data/processed/external/fake/ext_fake_0018.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "DALL-E_3",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  },
+  {
+    "asset_id": "external_test_Pristine_Camera_0619",
+    "relative_path": "data/processed/external/real/ext_real_0019.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "Pristine_Camera",
+    "label": 0,
+    "split": "external_test",
+    "sha256": "03fb2b42d2df45691edc5ec9fb385e2490bf1ae3e4f07c7d1d99c1e4f7fbad5d",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 50970
+  },
+  {
+    "asset_id": "external_test_SDXL_0619",
+    "relative_path": "data/processed/external/fake/ext_fake_0019.jpg",
+    "source_dataset": "Synthbuster",
+    "generator_family": "SDXL",
+    "label": 1,
+    "split": "external_test",
+    "sha256": "f582b993d0404becd5d484d0bf84a2e2fa50b957e1d46e9f1df17c28abd83fdf",
+    "dimensions": [
+      256,
+      256
+    ],
+    "original_format": "JPEG",
+    "filesize_bytes": 10845
+  }
+]
