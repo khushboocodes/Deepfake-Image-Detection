@@ -565,61 +565,109 @@ if HAS_STREAMLIT:
     """, unsafe_allow_html=True)
 
     # ==============================================================================
+    # Session State Initialization for Seamless Multi-Image Analysis (No Refresh Needed)
+    # ==============================================================================
+    if "uploader_key" not in st.session_state:
+        st.session_state.uploader_key = 0
+    if "camera_key" not in st.session_state:
+        st.session_state.camera_key = 0
+    if "active_bytes" not in st.session_state:
+        st.session_state.active_bytes = None
+    if "active_filename" not in st.session_state:
+        st.session_state.active_filename = None
+    if "last_file_name" not in st.session_state:
+        st.session_state.last_file_name = None
+    if "last_demo_selection" not in st.session_state:
+        st.session_state.last_demo_selection = "Custom Upload"
+
+    # ==============================================================================
     # Input Selection Bar (Tabs: Upload, Camera, Quick Samples)
     # ==============================================================================
     with st.container():
         input_tabs = st.tabs(["📥 Drag & Drop / File Upload", "📸 Live Camera Capture", "⚡ Quick Sample Portraits"])
 
-        uploaded_bytes = None
-        source_filename = "upload.jpg"
-        quick_chosen_path = None
-
         with input_tabs[0]:
             file_uploader_widget = st.file_uploader(
                 "Upload portrait image (JPEG, PNG, WebP up to 15 MB)",
                 type=["jpg", "jpeg", "png", "webp", "bmp"],
+                key=f"file_uploader_{st.session_state.uploader_key}",
                 help="Drag and drop or browse files. Full decompression safety and magic bytes checks applied."
             )
             if file_uploader_widget is not None:
-                uploaded_bytes = file_uploader_widget.read()
-                source_filename = file_uploader_widget.name
+                # Detect new or changed file upload
+                if file_uploader_widget.name != st.session_state.last_file_name:
+                    st.session_state.active_bytes = file_uploader_widget.getvalue()
+                    st.session_state.active_filename = file_uploader_widget.name
+                    st.session_state.last_file_name = file_uploader_widget.name
+                    st.rerun()
 
         with input_tabs[1]:
-            camera_photo = st.camera_input("📸 Take an on-spot photo with your webcam")
+            camera_photo = st.camera_input(
+                "📸 Take an on-spot photo with your webcam",
+                key=f"camera_input_{st.session_state.camera_key}"
+            )
             if camera_photo is not None:
-                uploaded_bytes = camera_photo.getvalue()
-                source_filename = "live_camera_capture.jpg"
+                photo_bytes = camera_photo.getvalue()
+                if st.session_state.active_filename != "live_camera_capture.jpg" or st.session_state.active_bytes != photo_bytes:
+                    st.session_state.active_bytes = photo_bytes
+                    st.session_state.active_filename = "live_camera_capture.jpg"
+                    st.session_state.last_file_name = None
+                    st.rerun()
 
         with input_tabs[2]:
             st.markdown("<p style='font-size:0.85rem; color:#94a3b8; margin-bottom:10px;'>Select any verified benchmark portrait to run instant detection:</p>", unsafe_allow_html=True)
             sq1, sq2, sq3, sq4 = st.columns(4)
             with sq1:
-                if st.button("Authentic Real 1", use_container_width=True):
-                    quick_chosen_path = "assets/demo/real_01.jpg"
+                if st.button("Authentic Real 1", use_container_width=True, key="btn_quick_real1"):
+                    with open("assets/demo/real_01.jpg", "rb") as f:
+                        st.session_state.active_bytes = f.read()
+                    st.session_state.active_filename = "real_01.jpg"
+                    st.session_state.last_file_name = None
+                    st.session_state.uploader_key += 1
+                    st.rerun()
             with sq2:
-                if st.button("Authentic Real 2", use_container_width=True):
-                    quick_chosen_path = "assets/demo/real_02.jpg"
+                if st.button("Authentic Real 2", use_container_width=True, key="btn_quick_real2"):
+                    with open("assets/demo/real_02.jpg", "rb") as f:
+                        st.session_state.active_bytes = f.read()
+                    st.session_state.active_filename = "real_02.jpg"
+                    st.session_state.last_file_name = None
+                    st.session_state.uploader_key += 1
+                    st.rerun()
             with sq3:
-                if st.button("Stable Diffusion Face", use_container_width=True):
-                    quick_chosen_path = "assets/demo/fake_sd_01.jpg"
+                if st.button("Stable Diffusion Face", use_container_width=True, key="btn_quick_fake_sd"):
+                    with open("assets/demo/fake_sd_01.jpg", "rb") as f:
+                        st.session_state.active_bytes = f.read()
+                    st.session_state.active_filename = "fake_sd_01.jpg"
+                    st.session_state.last_file_name = None
+                    st.session_state.uploader_key += 1
+                    st.rerun()
             with sq4:
-                if st.button("Midjourney Face", use_container_width=True):
-                    quick_chosen_path = "assets/demo/fake_mj_01.jpg"
+                if st.button("Midjourney Face", use_container_width=True, key="btn_quick_fake_mj"):
+                    with open("assets/demo/fake_mj_01.jpg", "rb") as f:
+                        st.session_state.active_bytes = f.read()
+                    st.session_state.active_filename = "fake_mj_01.jpg"
+                    st.session_state.last_file_name = None
+                    st.session_state.uploader_key += 1
+                    st.rerun()
 
-            if quick_chosen_path and os.path.exists(quick_chosen_path):
-                with open(quick_chosen_path, "rb") as f:
-                    uploaded_bytes = f.read()
-                source_filename = os.path.basename(quick_chosen_path)
-
-        # Fallback to sidebar demo if selected and no direct input
-        if uploaded_bytes is None and selected_demo != "Custom Upload":
-            demo_path = demo_options[selected_demo]
-            if demo_path and os.path.exists(demo_path):
-                with open(demo_path, "rb") as f:
-                    uploaded_bytes = f.read()
-                source_filename = os.path.basename(demo_path)
+        # Handle Sidebar Demo Selection change
+        if selected_demo != st.session_state.last_demo_selection:
+            st.session_state.last_demo_selection = selected_demo
+            if selected_demo != "Custom Upload":
+                demo_path = demo_options.get(selected_demo)
+                if demo_path and os.path.exists(demo_path):
+                    with open(demo_path, "rb") as f:
+                        st.session_state.active_bytes = f.read()
+                    st.session_state.active_filename = os.path.basename(demo_path)
+                    st.session_state.last_file_name = None
+                    st.session_state.uploader_key += 1
+                    st.rerun()
 
     st.write("")
+
+    # Retrieve current active image
+    uploaded_bytes = st.session_state.active_bytes
+    source_filename = st.session_state.active_filename or "upload.jpg"
 
     # ==============================================================================
     # Main Hero Workspace: Image Inspection & Line-by-Line Diagnostic Telemetry
@@ -648,6 +696,39 @@ if HAS_STREAMLIT:
             <div class="dark-card">
                 <div class="card-header-flex">
                     <h3 class="card-header-title">🖼️ Image Visual Inspection</h3>
+                </div>
+            """, unsafe_allow_html=True)
+
+            if report["is_valid"]:
+                try:
+                    preview_img = PIL.Image.open(io.BytesIO(uploaded_bytes))
+                    st.image(
+                        preview_img,
+                        use_container_width=True,
+                        caption=f"Asset: {report.get('filename')} ({report.get('dimensions', ['-','-'])[0]}x{report.get('dimensions', ['-','-'])[1]} px)"
+                    )
+                except Exception:
+                    st.warning("Could not render image preview.")
+            else:
+                st.error(f"Security Ingestion Block: {report.get('error_message', 'Invalid payload')}")
+
+            # Direct Reset / Clear Button on Left Card
+            if st.button("🔄 Clear / Analyze Another Image", key="btn_clear_image_left", use_container_width=True):
+                st.session_state.active_bytes = None
+                st.session_state.active_filename = None
+                st.session_state.last_file_name = None
+                st.session_state.uploader_key += 1
+                st.session_state.camera_key += 1
+                st.rerun()
+
+            st.markdown("</div>", unsafe_allow_html=True)
+
+        # --- RIGHT: Diagnostic Telemetry & All Metrics Line-by-Line ---
+        with col_metrics:
+            st.markdown("""
+            <div class="dark-card">
+                <div class="card-header-flex">
+                    <h3 class="card-header-title">🔍 Diagnostic Telemetry & Verdict</h3>
                 </div>
             """, unsafe_allow_html=True)
 
