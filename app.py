@@ -549,9 +549,6 @@ if HAS_STREAMLIT:
             <div style="background: rgba(99, 102, 241, 0.15); color: #c4b5fd; padding: 5px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; border: 1px solid rgba(99, 102, 241, 0.3);">
                 🎯 96.1% Accuracy
             </div>
-            <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.82rem;">
-                K
-            </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
