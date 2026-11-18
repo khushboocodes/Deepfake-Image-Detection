@@ -137,10 +137,20 @@ if HAS_STREAMLIT:
     [data-testid="stSidebar"] .stRadio label {
         color: #cbd5e1 !important;
         font-weight: 600;
-        font-size: 0.82rem;
+        font-size: 0.84rem;
     }
     [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
-        gap: 0.35rem !important;
+        gap: 0.70rem !important;
+    }
+    [data-testid="stSidebar"] .stSelectbox {
+        margin-bottom: 6px !important;
+    }
+    [data-testid="stSidebar"] .stRadio {
+        margin-top: 4px !important;
+        margin-bottom: 6px !important;
+    }
+    [data-testid="stSidebar"] .stRadio [role="radiogroup"] {
+        gap: 8px !important;
     }
 
     /* Sidebar Logo Header */
@@ -148,9 +158,9 @@ if HAS_STREAMLIT:
         display: flex;
         align-items: center;
         gap: 12px;
-        padding: 4px 2px 12px 2px;
+        padding: 6px 2px 14px 2px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
     .brand-icon-box {
         width: 38px;
@@ -182,13 +192,13 @@ if HAS_STREAMLIT:
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 7px 12px;
-        border-radius: 8px;
+        padding: 8px 14px;
+        border-radius: 9px;
         background: linear-gradient(135deg, #5b37e8 0%, #6d4aff 100%);
         color: #ffffff !important;
         font-weight: 600;
-        font-size: 0.85rem;
-        margin-bottom: 8px;
+        font-size: 0.86rem;
+        margin-bottom: 12px;
         box-shadow: 0 2px 8px rgba(91, 55, 232, 0.3);
     }
 
@@ -237,53 +247,63 @@ if HAS_STREAMLIT:
     .kpi-bar {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        margin-bottom: 8px;
+        gap: 12px;
+        margin-bottom: 12px;
     }
     .kpi-pill {
         background: rgba(22, 17, 48, 0.85);
         border: 1px solid rgba(139, 92, 246, 0.22);
-        border-radius: 10px;
-        padding: 8px 12px;
+        border-radius: 12px;
+        padding: 10px 14px;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .kpi-pill:hover {
+        transform: translateY(-1px);
+        border-color: rgba(139, 92, 246, 0.38);
     }
     .kpi-pill-icon {
-        font-size: 1.15rem;
+        font-size: 1.30rem;
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .kpi-pill-title {
-        font-size: 0.70rem;
-        font-weight: 600;
+        font-size: 0.72rem;
+        font-weight: 700;
         color: #94a3b8;
         text-transform: uppercase;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.4px;
+        margin-bottom: 3px;
     }
     .kpi-pill-val-row {
         display: flex;
         align-items: baseline;
-        gap: 6px;
+        gap: 8px;
     }
     .kpi-pill-val {
-        font-size: 1.20rem;
+        font-size: 1.28rem;
         font-weight: 800;
         color: #ffffff;
         letter-spacing: -0.3px;
     }
     .kpi-tag-green {
-        font-size: 0.68rem;
+        font-size: 0.70rem;
         font-weight: 700;
         color: #4ade80;
         background: rgba(34, 197, 94, 0.15);
-        padding: 1px 5px;
+        padding: 2px 6px;
         border-radius: 4px;
     }
     .kpi-tag-red {
-        font-size: 0.68rem;
+        font-size: 0.70rem;
         font-weight: 700;
         color: #f87171;
         background: rgba(239, 68, 68, 0.15);
-        padding: 1px 5px;
+        padding: 2px 6px;
         border-radius: 4px;
     }
 
@@ -327,12 +347,18 @@ if HAS_STREAMLIT:
     [data-testid="stFileUploader"] {
         background: rgba(30, 22, 65, 0.5) !important;
         border: 1.5px dashed #8b5cf6 !important;
-        border-radius: 10px !important;
-        padding: 8px 12px !important;
+        border-radius: 12px !important;
+        padding: 12px 18px !important;
     }
     [data-testid="stFileUploader"]:hover {
         border-color: #a78bfa !important;
         background: rgba(40, 30, 85, 0.6) !important;
+    }
+    [data-testid="stFileUploader"] label {
+        font-size: 0.86rem !important;
+        font-weight: 600 !important;
+        color: #cbd5e1 !important;
+        margin-bottom: 6px !important;
     }
 
     /* Compact Verdict Banners */
@@ -399,24 +425,26 @@ if HAS_STREAMLIT:
 
     /* Compact Tabs Styling */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 6px;
+        gap: 8px;
         background: rgba(255, 255, 255, 0.04);
-        padding: 3px;
-        border-radius: 8px;
-        margin-bottom: 6px;
+        padding: 4px 6px;
+        border-radius: 10px;
+        margin-bottom: 8px;
     }
     .stTabs [data-baseweb="tab"] {
-        border-radius: 6px;
-        font-size: 0.82rem;
+        border-radius: 8px;
+        font-size: 0.84rem;
         font-weight: 600;
         color: #94a3b8;
         background: transparent;
         border: none;
-        padding: 4px 12px;
+        padding: 6px 14px;
+        transition: all 0.15s ease;
     }
     .stTabs [aria-selected="true"] {
         background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
         color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.35);
     }
 
     /* Metric Widget Overrides */
@@ -448,7 +476,7 @@ if HAS_STREAMLIT:
         </div>
         """, unsafe_allow_html=True)
 
-        st.markdown("<p style='font-size:0.75rem; text-transform:uppercase; letter-spacing:0.4px; color:#94a3b8; font-weight:700; margin-bottom:6px;'>Forensic Controls</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:0.75rem; text-transform:uppercase; letter-spacing:0.5px; color:#94a3b8; font-weight:700; margin-top:6px; margin-bottom:8px;'>Forensic Controls</p>", unsafe_allow_html=True)
 
         demo_options = {
             "Custom Upload": None,
@@ -472,18 +500,18 @@ if HAS_STREAMLIT:
         )
         decision_mode = "direct" if "Direct" in decision_mode_choice else "forensic"
 
-        st.markdown("<p style='font-size:0.75rem; text-transform:uppercase; letter-spacing:0.4px; color:#94a3b8; font-weight:700; margin-top:10px; margin-bottom:6px;'>System Telemetry</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:0.75rem; text-transform:uppercase; letter-spacing:0.5px; color:#94a3b8; font-weight:700; margin-top:14px; margin-bottom:8px;'>System Telemetry</p>", unsafe_allow_html=True)
         st.markdown(f"""
-        <div style="background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px; font-size: 0.78rem; border: 1px solid rgba(255,255,255,0.06);">
-            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+        <div style="background: rgba(255,255,255,0.03); border-radius: 9px; padding: 12px 14px; font-size: 0.80rem; border: 1px solid rgba(255,255,255,0.06);">
+            <div style="display:flex; justify-content:space-between; margin-bottom:7px;">
                 <span style="color:#94a3b8;">Backbone:</span>
                 <span style="color:#a5b4fc; font-weight:600;">{config.get('model_architecture', 'efficientnet_b0')}</span>
             </div>
-            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:7px;">
                 <span style="color:#94a3b8;">Compute:</span>
                 <span style="color:#4ade80; font-weight:600;">{device.upper()} (RTX 3050)</span>
             </div>
-            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:7px;">
                 <span style="color:#94a3b8;">Temperature T:</span>
                 <span style="color:#e2e8f0; font-weight:600;">{config.get('calibration', {}).get('temperature', 0.9041)}</span>
             </div>
@@ -495,9 +523,9 @@ if HAS_STREAMLIT:
         """, unsafe_allow_html=True)
 
         st.markdown("""
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 10px; margin-top: 14px; text-align: center;">
-            <p style="margin:0; font-size: 0.76rem; font-weight: 600; color: #ffffff;">AI for a More Trustworthy Digital World ✨</p>
-            <p style="margin:2px 0 0 0; font-size: 0.68rem; color: #94a3b8;">Forensic Identity Verification</p>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 9px; padding: 12px 14px; margin-top: 16px; text-align: center;">
+            <p style="margin:0; font-size: 0.78rem; font-weight: 600; color: #ffffff;">AI for a More Trustworthy Digital World ✨</p>
+            <p style="margin:3px 0 0 0; font-size: 0.68rem; color: #94a3b8;">Forensic Identity Verification</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -505,23 +533,23 @@ if HAS_STREAMLIT:
     # Top Sleek Header Bar & KPI Inline Strip
     # ==============================================================================
     st.markdown(f"""
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
         <div>
-            <h1 style="font-size: 1.55rem; font-weight: 800; color: #ffffff; margin: 0; letter-spacing: -0.4px; display: flex; align-items: center; gap: 8px;">
+            <h1 style="font-size: 1.55rem; font-weight: 800; color: #ffffff; margin: 0 0 3px 0; letter-spacing: -0.4px; display: flex; align-items: center; gap: 8px;">
                 <span>🛡️</span> Deepfake Image Detection System
             </h1>
-            <p style="font-size: 0.80rem; color: #94a3b8; margin: 0; font-weight: 500;">
+            <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; font-weight: 500;">
                 Automated still-image forensic analysis for digital identity verification with calibrated uncertainty estimation.
             </p>
         </div>
         <div style="display: flex; align-items: center; gap: 8px;">
-            <div style="background: rgba(16, 185, 129, 0.15); color: #86efac; padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; border: 1px solid rgba(16, 185, 129, 0.3);">
+            <div style="background: rgba(16, 185, 129, 0.15); color: #86efac; padding: 5px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; border: 1px solid rgba(16, 185, 129, 0.3);">
                 🟢 Model Ready (RTX 3050 CUDA)
             </div>
-            <div style="background: rgba(99, 102, 241, 0.15); color: #c4b5fd; padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; border: 1px solid rgba(99, 102, 241, 0.3);">
+            <div style="background: rgba(99, 102, 241, 0.15); color: #c4b5fd; padding: 5px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; border: 1px solid rgba(99, 102, 241, 0.3);">
                 🎯 96.1% Accuracy
             </div>
-            <div style="width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.80rem;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.82rem;">
                 K
             </div>
         </div>
