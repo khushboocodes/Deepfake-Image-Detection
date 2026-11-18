@@ -1,0 +1,77 @@
+{
+  "total_false_positives": 20,
+  "total_false_negatives": 0,
+  "worst_false_positives": [
+    {
+      "asset_id": "external_test_Pristine_Camera_0600",
+      "relative_path": "data/processed/external/real/ext_real_0000.jpg",
+      "generator_family": "Pristine_Camera",
+      "ground_truth": 0,
+      "predicted_prob": 0.6842
+    },
+    {
+      "asset_id": "external_test_Pristine_Camera_0601",
+      "relative_path": "data/processed/external/real/ext_real_0001.jpg",
+      "generator_family": "Pristine_Camera",
+      "ground_truth": 0,
+      "predicted_prob": 0.6842
+    },
+    {
+      "asset_id": "external_test_Pristine_Camera_0602",
+      "relative_path": "data/processed/external/real/ext_real_0002.jpg",
+      "generator_family": "Pristine_Camera",
+      "ground_truth": 0,
+      "predicted_prob": 0.6842
+    },
+    {
+      "asset_id": "external_test_Pristine_Camera_0603",
+      "relative_path": "data/processed/external/real/ext_real_0003.jpg",
+      "generator_family": "Pristine_Camera",
+      "ground_truth": 0,
+      "predicted_prob": 0.6842
+    },
+    {
+      "asset_id": "external_test_Pristine_Camera_0604",
+      "relative_path": "data/processed/external/real/ext_real_0004.jpg",
+      "generator_family": "Pristine_Camera",
+      "ground_truth": 0,
+      "predicted_prob": 0.6842
+    },
+    {
+      "asset_id": "external_test_Pristine_Camera_0605",
+      "relative_path": "data/processed/external/real/ext_real_0005.jpg",
+      "generator_family": "Pristine_Camera",
+      "ground_truth": 0,
+      "predicted_prob": 0.6842
+    },
+    {
+      "asset_id": "external_test_Pristine_Camera_0606",
+      "relative_path": "data/processed/external/real/ext_real_0006.jpg",
+      "generator_family": "Pristine_Camera",
+      "ground_truth": 0,
+      "predicted_prob": 0.6842
+    },
+    {
+      "asset_id": "external_test_Pristine_Camera_0607",
+      "relative_path": "data/processed/external/real/ext_real_0007.jpg",
+      "generator_family": "Pristine_Camera",
+      "ground_truth": 0,
+      "predicted_prob": 0.6842
+    },
+    {
+      "asset_id": "external_test_Pristine_Camera_0608",
+      "relative_path": "data/processed/external/real/ext_real_0008.jpg",
+      "generator_family": "Pristine_Camera",
+      "ground_truth": 0,
+      "predicted_prob": 0.6842
+    },
+    {
+      "asset_id": "external_test_Pristine_Camera_0609",
+      "relative_path": "data/processed/external/real/ext_real_0009.jpg",
+      "generator_family": "Pristine_Camera",
+      "ground_truth": 0,
+      "predicted_prob": 0.6842
+    }
+  ],
+  "worst_false_negatives": []
+}

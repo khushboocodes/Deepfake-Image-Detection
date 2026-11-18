@@ -1,0 +1,23 @@
+{
+  "confusion_matrix": {
+    "true_negatives": 0,
+    "false_positives": 20,
+    "false_negatives": 0,
+    "true_positives": 20
+  },
+  "accuracy": 0.5,
+  "balanced_accuracy": 0.5,
+  "precision": 0.5,
+  "recall_tpr": 1.0,
+  "specificity_tnr": 0.0,
+  "false_positive_rate": 1.0,
+  "false_negative_rate": 0.0,
+  "f1_score_synthetic": 0.6667,
+  "f1_score_real": 0.0,
+  "macro_f1": 0.3333,
+  "roc_auc": 0.5,
+  "pr_auc": 0.75,
+  "equal_error_rate": 0.5,
+  "expected_calibration_error": 0.1842,
+  "brier_score": 0.2839
+}

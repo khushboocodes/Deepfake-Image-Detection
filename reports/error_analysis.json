@@ -1,0 +1,148 @@
+{
+  "total_false_positives": 36,
+  "total_false_negatives": 23,
+  "worst_false_positives": [
+    {
+      "asset_id": "Real_Face_05674",
+      "relative_path": "data/raw/new_real/real/00933.jpg",
+      "generator_family": "Real_Face",
+      "ground_truth": 0,
+      "predicted_prob": 0.986
+    },
+    {
+      "asset_id": "Real_Face_05965",
+      "relative_path": "data/raw/new_real/real/01325.jpg",
+      "generator_family": "Real_Face",
+      "ground_truth": 0,
+      "predicted_prob": 0.9845
+    },
+    {
+      "asset_id": "Real_Face_07862",
+      "relative_path": "data/raw/new_real/real/03978.jpg",
+      "generator_family": "Real_Face",
+      "ground_truth": 0,
+      "predicted_prob": 0.9639
+    },
+    {
+      "asset_id": "Real_Face_09282",
+      "relative_path": "data/raw/new_real/real/05974.jpg",
+      "generator_family": "Real_Face",
+      "ground_truth": 0,
+      "predicted_prob": 0.941
+    },
+    {
+      "asset_id": "Real_Face_07101",
+      "relative_path": "data/raw/new_real/real/02904.jpg",
+      "generator_family": "Real_Face",
+      "ground_truth": 0,
+      "predicted_prob": 0.9264
+    },
+    {
+      "asset_id": "Real_Face_08236",
+      "relative_path": "data/raw/new_real/real/04509.jpg",
+      "generator_family": "Real_Face",
+      "ground_truth": 0,
+      "predicted_prob": 0.9191
+    },
+    {
+      "asset_id": "Real_Face_07707",
+      "relative_path": "data/raw/new_real/real/03758.jpg",
+      "generator_family": "Real_Face",
+      "ground_truth": 0,
+      "predicted_prob": 0.9167
+    },
+    {
+      "asset_id": "Real_Face_09457",
+      "relative_path": "data/raw/new_real/real/06210.jpg",
+      "generator_family": "Real_Face",
+      "ground_truth": 0,
+      "predicted_prob": 0.9078
+    },
+    {
+      "asset_id": "Real_Face_06591",
+      "relative_path": "data/raw/new_real/real/02208.jpg",
+      "generator_family": "Real_Face",
+      "ground_truth": 0,
+      "predicted_prob": 0.9045
+    },
+    {
+      "asset_id": "Real_Face_07404",
+      "relative_path": "data/raw/new_real/real/03332.jpg",
+      "generator_family": "Real_Face",
+      "ground_truth": 0,
+      "predicted_prob": 0.8853
+    }
+  ],
+  "worst_false_negatives": [
+    {
+      "asset_id": "Synthetic_Face_01631",
+      "relative_path": "data/raw/new_fake_stylegan/fake/16O9R9UI1J.jpg",
+      "generator_family": "Synthetic_Face",
+      "ground_truth": 1,
+      "predicted_prob": 0.0087
+    },
+    {
+      "asset_id": "Synthetic_Face_02278",
+      "relative_path": "data/raw/new_fake_stylegan/fake/1N5SJWO5O5.jpg",
+      "generator_family": "Synthetic_Face",
+      "ground_truth": 1,
+      "predicted_prob": 0.0092
+    },
+    {
+      "asset_id": "Synthetic_Face_04530",
+      "relative_path": "data/raw/new_fake_stylegan/fake/39X2XKX7WA.jpg",
+      "generator_family": "Synthetic_Face",
+      "ground_truth": 1,
+      "predicted_prob": 0.0105
+    },
+    {
+      "asset_id": "Synthetic_Face_02553",
+      "relative_path": "data/raw/new_fake_stylegan/fake/1UD1AIGDPE.jpg",
+      "generator_family": "Synthetic_Face",
+      "ground_truth": 1,
+      "predicted_prob": 0.0177
+    },
+    {
+      "asset_id": "Synthetic_Face_01614",
+      "relative_path": "data/raw/new_fake_stylegan/fake/162OD53BZX.jpg",
+      "generator_family": "Synthetic_Face",
+      "ground_truth": 1,
+      "predicted_prob": 0.0419
+    },
+    {
+      "asset_id": "Synthetic_Face_04015",
+      "relative_path": "data/raw/new_fake_stylegan/fake/2WKBBMF1U8.jpg",
+      "generator_family": "Synthetic_Face",
+      "ground_truth": 1,
+      "predicted_prob": 0.0727
+    },
+    {
+      "asset_id": "Synthetic_Face_03406",
+      "relative_path": "data/raw/new_fake_stylegan/fake/2HAXQDU7YE.jpg",
+      "generator_family": "Synthetic_Face",
+      "ground_truth": 1,
+      "predicted_prob": 0.0863
+    },
+    {
+      "asset_id": "Synthetic_Face_02465",
+      "relative_path": "data/raw/new_fake_stylegan/fake/1S3ANFPE1N.jpg",
+      "generator_family": "Synthetic_Face",
+      "ground_truth": 1,
+      "predicted_prob": 0.1169
+    },
+    {
+      "asset_id": "Synthetic_Face_00064",
+      "relative_path": "data/raw/new_fake_stylegan/fake/01PGW4LBRJ.jpg",
+      "generator_family": "Synthetic_Face",
+      "ground_truth": 1,
+      "predicted_prob": 0.1177
+    },
+    {
+      "asset_id": "Synthetic_Face_01251",
+      "relative_path": "data/raw/new_fake_stylegan/fake/0WFITA4V3B.jpg",
+      "generator_family": "Synthetic_Face",
+      "ground_truth": 1,
+      "predicted_prob": 0.1269
+    }
+  ]
+}
